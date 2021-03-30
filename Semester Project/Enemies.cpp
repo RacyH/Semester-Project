@@ -1,10 +1,6 @@
 #include "Enemies.h"
-#include "Player.h"
-
-void Enemies::SetEnemy()
-{
-	//there will only be 12 enemey types. i may move this to the map.h, or the player.h as I develop more of the game. May include a boss later
-}
+//#include "Player.h"
+//#include <time.h>
 
 void Enemies::SetEHealth()
 {

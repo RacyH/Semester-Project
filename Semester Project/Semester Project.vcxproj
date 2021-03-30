@@ -140,20 +140,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Enemies.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="NPCs.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Save.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Crafting.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Crafting.h" />
     <ClInclude Include="Enemies.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="NPCs.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Save.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\inv1.txt" />
+    <Text Include="..\map1.txt" />
+    <Text Include="..\save1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Crafting.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Enemies.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,6 +33,9 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -50,11 +50,22 @@
     <ClInclude Include="NPCs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Crafting.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Save.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\save1.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="..\inv1.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="..\map1.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

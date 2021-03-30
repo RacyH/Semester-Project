@@ -4,44 +4,19 @@
 
 #include <iostream>
 #include <iomanip>
-#include "Crafting.h"
-#include "Enemies.h"
-#include "Map.h"
-#include "Player.h"
-#include "NPCs.h"
-#include "Save.h"
+#include <Windows.h>
+#include <string>
+#include "Game.h"
+
 
 void mainmenu();
 
-Player Player1;
+Game game;
 
-void main()
+int main()
 {
 	mainmenu();
-	char selection;
-	bool choice = false;
-	while (choice == false)
-	{
-		cin >> selection;
-		if (selection == 'N' || selection == 'n')
-		{
-			Player1.CharacterSetUp();
-		}
-		else if (selection == 'L' || selection == 'l')
-		{
-
-		}
-		else if (selection == 'E' || selection == 'e')
-		{
-
-		}
-		else
-		{
-			cout << "Incorrect Input. Try again.\n";
-		}
-	}
-
-
+	game.startmenu();
 }
 
 void mainmenu()

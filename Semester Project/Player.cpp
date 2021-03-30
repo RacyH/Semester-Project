@@ -1,15 +1,15 @@
 #include "Player.h"
-//#include "Save.h"
-#include "Map.h"
-#include "Enemies.h"
-#include "NPCs.h"
+//#include "Map.h"
+//#include "Enemies.h"
+//#include "NPCs.h"
 
-Map current;
+//Map current;
 
 Player::Player()
 {
 	Name = "";
 	health = 0;
+	maxHealth = 0;
 	stamina = 0;
 	strength = 0;
 	speed = 0;
@@ -18,7 +18,8 @@ Player::Player()
 
 Player::~Player()
 {
-	//save player, reset inventory, perks, location
+
+	//reset/destroy
 }
 
 void Player::CharacterSetUp()
@@ -27,6 +28,9 @@ void Player::CharacterSetUp()
 	stamina = 1;
 	speed = 1;
 	strength = 1;
+	health = 100;
+	maxHealth = health;
+	experienceneeded = 50;
 	level = 0;
 
 	int points = 0;
@@ -67,7 +71,7 @@ void Player::CharacterSetUp()
 	for (points; points < 4; points++)
 	{
 		system("cls");
-		cout << "What would you like to add to your character stats now.\n";
+		cout << "What would you like to add to your character stats now?\n";
 		cin >> selection;
 		switch (selection)
 		{
@@ -91,45 +95,148 @@ void Player::CharacterSetUp()
 	}
 }
 
-char Player::playermove(char move)
+void Player::showcraft()
 {
-	switch (move)
+	int crch;
+	if (inventory[2] >= 2 && inventory[1] >= 1 && inventory[15] >= 1)//sword
 	{
-	case 'w':
-		break;//Forward
-	case 'W':
-		break;
-	case 'a':
-		break;//Left
-	case 'A':
-		break;
-	case 's':
-		break;//Down/Backward
-	case 'S':
-		break;
-	case 'd':
-		break;//Right
-	case 'D':
-		break;
-	default:
-		break;
+		cout << "1. Sword\n";
 	}
-}
-
-void Player::characterlocation()
-{
-	
-}
-
-void Player::craft(int& cr)
-{
-	switch (cr)
+	if (inventory[2] >= 1 && inventory[1] >= 2 && inventory[15] >= 1)
 	{
-	case 0:
-		break;//world
-	case 1:
-		break;//item
-	default: cout << "You cannot do that here.\n";
+		cout << "2. Battleaxe\n";
+	}
+	if (inventory[2] >= 1 && inventory[1] >= 2 && inventory[15] >= 1)
+	{
+		cout << "3. Warhammer\n";
+	}
+	if (inventory[2] >= 1 && inventory[1] >= 1)
+	{
+		cout << "4. Hammer\n";
+	}
+	if (inventory[2] >= 1 && inventory[1] >= 2)
+	{
+		cout << "5. Axe\n";
+	}
+	if (inventory[2] >= 2 && inventory[1] >= 2)
+	{
+		cout << "6. Pickaxe\n";
+	}
+	if (inventory[2] >= 1 && inventory[1] >= 3 && inventory[15] >= 1)
+	{
+		cout << "7. Shield\n";
+	}
+	if (inventory[2] >= 1 && inventory[15] >= 1)
+	{
+		cout << "8. Knife\n";
+	}
+	if (inventory[16] >= 1 && inventory[1] >= 1)
+	{
+		cout << "9. Food\n";
+	}
+	if (inventory[11] >= 1 && inventory[17] >= 1)
+	{
+		cout << "10. Health Potion\n";
+	}
+	if (inventory[17] >= 2 && inventory[1] >= 1)
+	{
+		cout << "11. Stat Boost Potion\n";
+	}
+	if (inventory[16] >= 1 && inventory[1] >= 1 && inventory[17] >= 1)
+	{
+		cout << "12. Health Boost Potion\n";
+	}
+	if (inventory[2] >= 2)
+	{
+		cout << "13. Helmet\n";
+	}
+	if (inventory[5] >= 2)
+	{
+		cout << "14. Chest Piece\n";
+	}
+	if (inventory[4] >= 2)
+	{
+		cout << "15. Leg Plating\n";
+	}
+	if (inventory[3] >= 2)
+	{
+		cout << "16. Armored Boots\n";
+	}
+	cout << "Put in the number next to the item you would like to craft.\n";//need an exit code
+	cin >> crch;
+	craft(crch);
+}
+
+void Player::craft(int& item)
+{
+	switch (item)
+	{
+	case 1:	inventory[2] = inventory[2] - 2;
+		inventory[1] = inventory[1] - 1;
+		inventory[15] = inventory[15] - 1;
+		inventory[3]++;
+		break;
+	case 2:	inventory[2] = inventory[2] - 1;
+		inventory[1] = inventory[1] - 2;
+		inventory[15] = inventory[15] - 1;
+		inventory[4]++;
+		break;
+	case 3:	inventory[2] = inventory[2] - 1;
+		inventory[1] = inventory[1] - 2;
+		inventory[15] = inventory[15] - 1;
+		inventory[5]++;
+		break;
+	case 4:	inventory[2] = inventory[2] - 1;
+		inventory[1] = inventory[1] - 1;
+		inventory[6]++;
+		break;
+	case 5:	inventory[2] = inventory[2] - 1;
+		inventory[1] = inventory[1] - 2;
+		inventory[7]++;
+		break;
+	case 6:	inventory[2] = inventory[2] - 2;
+		inventory[1] = inventory[1] - 2;
+		inventory[8]++;
+		break;
+	case 7:	inventory[2] = inventory[2] - 1;
+		inventory[1] = inventory[1] - 3;
+		inventory[15] = inventory[15] - 1;
+		inventory[9]++;
+		break;
+	case 8:	inventory[2] = inventory[2] - 1;
+		inventory[15] = inventory[15] - 1;
+		inventory[10]++;
+		break;
+	case 9:	inventory[16] = inventory[16] - 1;
+		inventory[1] = inventory[1] - 1;
+		inventory[11]++;
+		break;
+	case 10: inventory[17] = inventory[17] - 1;
+		inventory[11] = inventory[11] - 1;
+		inventory[12]++;
+		break;
+	case 11: inventory[17] = inventory[17] - 1;
+		inventory[1] = inventory[1] - 1;
+		inventory[13]++;
+		break;
+	case 12: inventory[16] = inventory[16] - 1;
+		inventory[1] = inventory[1] - 1;
+		inventory[17] = inventory[17] - 1;
+		inventory[14]++;
+		break;
+	case 13: inventory[2] = inventory[2] - 2;
+		inventory[18]++;
+		break;
+	case 14: inventory[2] = inventory[2] - 5;
+		inventory[19]++;
+		break;
+	case 15: inventory[2] = inventory[2] - 4;
+		inventory[20]++;
+		break;
+	case 16: inventory[2] = inventory[2] - 3;
+		inventory[21]++;
+		break;
+	default: cout << "Invalid Option.\n";
 		break;
 	}
 }
@@ -154,11 +261,10 @@ void Player::LevelUp()
 	char stat;
 	bool haschosen = false;
 
-	level = level + 1;
-	strength = strength + 1;
-	speed = speed + 1;
-	stamina = stamina + 1;
-	health = health + 10;
+	level++, strength++, speed++, stamina++;
+	maxHealth = maxHealth + 10;
+	health = maxHealth;
+	experienceneeded = (level * 50) + 50;
 
 	system("cls");
 
@@ -171,22 +277,23 @@ void Player::LevelUp()
 		cin >> stat;
 		if (stat == 'W' || stat == 'w')
 		{
-			speed = speed + 1;
+			speed++;
 			haschosen = true;
 		}
 		else if (stat == 'A' || stat == 'a')
 		{
-			strength = strength + 1;
+			strength++;
 			haschosen = true;
 		}
 		else if (stat == 'S' || stat == 's')
 		{
-			stamina = stamina + 1;
+			stamina++;
 			haschosen = true;
 		}
 		else if (stat == 'D' || stat == 'd')
 		{
-			health = health + 10;
+			maxHealth = maxHealth + 10;
+			health = maxHealth;
 			haschosen = true;
 		}
 		else
@@ -208,7 +315,93 @@ void Player::PerkChart()
 
 }
 
-void Player::useitem()
+void Player::useitem(int& use)
 {
+	if (use == 11 || use == 12 || use == 13 || use == 14 || use == 18)
+	{
+		if (inventory[use] > 0)
+		{
+			inventory[use] = inventory[use] - 1;
+		}
+		else
+		{
+			cout << "There is not enough of that item to use.\n";
+		}
+	}
+	else
+	{
+		cout << "You may not use that item. Try equipping it instead.\n";
+	}
+}
 
+void Player::AddItem(int& add, int num)
+{
+	inventory[add] = inventory[add] + num;
+}
+
+void Player::ShowInv()
+{
+	for (int i = 0; i < 22; i++)
+	{
+		if (inventory[i] > 0)
+		{
+			cout << i + 1 << '\t' << items[i] << '\t' << inventory[i];
+		}
+	}
+}
+
+void Player::EquipItem(int& eq)
+{
+	if (eq == 3 || eq == 4 || eq == 5 || eq == 6 || eq == 7 || eq == 8 || eq == 10)//weaponry
+	{
+		if (inventory[eq] > 0 && equipment[5][0] == 0)
+		{
+			inventory[eq] = inventory[eq] - 1;
+			equipment[5][0] = eq;
+		}
+	}
+	else if (eq == 18 && equipment[0][0] == 0)
+	{
+		if (inventory[eq] > 0)
+		{
+			inventory[eq] = inventory[eq] - 1;
+			equipment[0][0] = eq;
+		}
+	}
+	else if (eq == 19 && equipment[1][0] == 0) //helmet
+	{
+		if (inventory[eq] > 0)
+		{
+			inventory[eq] = inventory[eq] - 1;
+			equipment[1][0] = 1;
+		}
+	}
+	else if (eq == 20 && equipment[2][0] == 0) //chest plate
+	{
+		if (inventory[eq] > 0)
+		{
+			inventory[eq] = inventory[eq] - 1;
+			equipment[2][0] = 1;
+		}
+	}
+	else if (eq == 21 && equipment[3][0] == 0) //leg plating
+	{
+		if (inventory[eq] > 0)
+		{
+			inventory[eq] = inventory[eq] - 1;
+			equipment[3][0] = 1;
+		}
+	}
+	else if (eq == 9 && equipment[4][0] == 0) //shield
+	{
+		if (inventory[eq] > 0)
+		{
+			inventory[eq] = inventory[eq] - 1;
+			equipment[4][0] = 1;
+		}
+	}
+	else
+	{
+		cout << "You may not equip that item.\n";
+	}
 }
