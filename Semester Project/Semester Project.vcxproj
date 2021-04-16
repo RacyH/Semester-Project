@@ -156,9 +156,9 @@
     <ClInclude Include="Save.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\inv1.txt" />
-    <Text Include="..\map1.txt" />
-    <Text Include="..\save1.txt" />
+    <Text Include="inv1.txt" />
+    <Text Include="map1.txt" />
+    <Text Include="save1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

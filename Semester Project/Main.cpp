@@ -1,5 +1,7 @@
 /*Racy Halterman
-* 
+* Data Structures Spring 2021
+* Semester Project
+* Writing a video game program.
 */
 
 #include <iostream>
@@ -8,14 +10,17 @@
 #include <string>
 #include "Game.h"
 
-
+/*
+*Preconditions -
+*Postconditions -
+*/
 void mainmenu();
 
-Game game;
 
 int main()
 {
 	mainmenu();
+	Game game;//i am going to need constructors and deconstructors for every single class.
 	game.startmenu();
 }
 

@@ -58,13 +58,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\save1.txt">
+    <Text Include="map1.txt">
       <Filter>Source Files</Filter>
     </Text>
-    <Text Include="..\inv1.txt">
+    <Text Include="save1.txt">
       <Filter>Source Files</Filter>
     </Text>
-    <Text Include="..\map1.txt">
+    <Text Include="inv1.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
