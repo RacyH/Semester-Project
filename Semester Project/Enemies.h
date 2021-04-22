@@ -15,165 +15,171 @@ class Enemies
 {
 public:
 
-	/*
-*Preconditions -
-*Postconditions -
+/*
+*Preconditions - Requires Enemies.h and Enemies.cpp. Requires iostream Requires SetEnemy(), SetEMaxLevel(), SetELevel(), SetEHealth,
+* SetESpeed(), SetEStamina(), SetEStr(), EnemyAttack(), SetExp(), SetLoot(), and SetArmorRating() are working properly.
+* Requires an input.
+*Postconditions - Creates the Enemy based on input.
 */
 	Enemies(int no, int plev);
 
 	/*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream is loaded.
+*Postconditions - Resets the Enemy stats to 0.
 */
 	~Enemies();
 
 /*
-*Preconditions - 
-*Postconditions - 
+*Preconditions - Requires an input. Requires iostream. Requires enumber and ecurrent are variables that can have values set to them.
+*Postconditions - Sets the enemies enumber and their name.
 */
 	void SetEnemy(int enu) { ecurrent = EnemyName[enu]; enumber = enu; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires ecurrent to have a string saved in it.
+*Postconditions - Returns the string found in ecurrent.
 */
 	string GetEnemy() { return ecurrent; };
 
-	/*
-*Preconditions -
-*Postconditions -
+/*
+*Preconditions - Requires iostream. Requires enumber to have an int value stored in it.
+*Postconditions - Returns the enumber.
 */
 	int GetENumber() { return enumber; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires enumber and elevel have values. Requires ehealth to be able to have an integer set to it.
+*Postconditions - Sets the Enemy's health based on level and enumber.
 */
 	void SetEHealth();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires ehealth has a value in it.
+*Postconditions - Returns ehealth.
 */
 	int GetEHealth() { return ehealth; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires enumber and elevel have values saved in them. Requires espeed to be a settable variable.
+*Postconditions - Sets the espeed.
 */
 	void SetESpeed();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires espeed to have a saved int value.
+*Postconditions - Returns espeed.
 */
 	int GetESpeed() { return espeed; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires enumber and elevel have values saved in them. Requires estamina to be a settable variable.
+*Postconditions - Sets estamina.
 */
 	void SetEStamina();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires estamina to have a saved int value.
+*Postconditions - Returns estamina.
 */
 	int GetEStamina() { return estamina; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires enumber and elevel have values saved in them. Requires estrength to be a settable variable.
+*Postconditions - Sets estrength.
 */
 	void SetEStr();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires estrength to have a saved int value.
+*Postconditions - Returns estrength.
 */
 	int GetEStr() { return estrength; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires enumber has a value saved in it. Requires emax_level to be a settable variable.
+*Postconditions - Sets emax_level
 */
 	void SetEMaxLevel();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires emax_level to have an int value saved.
+*Postconditions - Returns emax_level.
 */
 	int GetEMaxLevel() { return emax_level; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iosteam. Requires input. Requires emax_level be set. Requires elevel to be a settable variable.
+*Postconditions - Sets elevel based on input.
 */
 	void SetELevel(int plvl); //What if I have the max level as an input from the enemy list?
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires elevel has a saved int value.
+*Postconditions - Returns elevel.
 */
 	int GetELevel() { return elevel; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires enumber has a saved int value. Requires eexpgiven is a settable int variable.
+*Postconditions - Sets eexpgiven.
 */
 	void SetExp();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires eexpgiven has a saved int value.
+*Postconditions - Returns eexpgiven.
 */
 	int GetExp() { return eexpgiven; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires estrength has a saved int value. Requires eattack is a settable int variable.
+*Postconditions - Sets and returns eattack.
+* NOTE*** This function could have been avoided, but I wanted to keep it so that
+* I could use it in later versions of this game.
 */
 	int EnemyAttack();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires elevel has a int value stored to it. Requires earmor is a settable int variable.
+*Postconditions - Sets earmor.
+* NOTE*** Again, used in later versions of the game.
 */
 	void SetArmorRating();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires earmor has an int value.
+*Postconditions - Returns earmor.
 */
 	int GetArmorRating() { return earmor; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires time.h. Requires itemno, amount, and gold are settable
+* int variables.
+*Postconditions - Sets gold, itemno, and amount.
 */
 	void SetLoot();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires reference input. Requires itemno, amount, and gold have int values set to them.
+*Postconditions - Alters the input to equal itemno, amount, and gold.
 */
 	void PlayerGetLoot(int& ino, int& amt, int& g);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires SetLoot() function works. Requires input. Requires ehealth has a saved int value.
+*Postconditions - Subtracts input from ehealth. If ehealth reaches or falls below zero, calls SetLoot() function.
 */
 	void GetAttacked(int att);
 
-	/*
-*Preconditions -
-*Postconditions -
+/*
+*Preconditions - Requires iostream. Requires ehealth.
+*Postconditions - Sets ehealth to 0.
 */
 	void DeathByFlee();
 
-	/*
-*Preconditions -
-*Postconditions -
+/*
+*Preconditions - Requires iostream. Requires std library be loaded. Requires ecurrent, elevel, and ehealth to have saved values.
+*Postconditions - Outputs basic information about the enemy to the screen.
 */
 	void EHUD();
 

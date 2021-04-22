@@ -11,8 +11,8 @@
 #include "Game.h"
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream and std library.
+*Postconditions - Outputs the main menu to the screen.
 */
 void mainmenu();
 

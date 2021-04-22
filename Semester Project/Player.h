@@ -13,286 +13,305 @@ class Player
 public:
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires SetBeginningInv(). Requires Name, health, maxHealth, stamina,
+* strength, speed, level, currentexperience, experienceneeded.
+*Postconditions - Sets the above to their default default. Runs SetBeginningInv().
 */
 	Player();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires Name, health, maxHealth, stamina,
+* strength, speed, level, currentexperience, experienceneeded.
+*Postconditions - Resets the above to their default.
 */
 	~Player();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream and std library. Requires strength, stamina, speed, health, maxHealth,
+* experienceneeded, level.
+*Postconditions - Adds 1 to each of strength, stamina, speed. Sets health to 100, experienceneeded to 50. Sets maxHealth to health.
+* Then it prompts the user to choose which of strength, stamina, speed they would like to add 1 point to, five times.
 */
 	void CharacterSetUp();
 
 	/*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires inventory[], equipment[].
+*Postconditions - Sets the values of all items in both arrays to 0.
 */
 	void SetBeginningInv();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires Name. Requires input.
+*Postconditions - Sets Name to the input.
 */
 	void SetName(string Name1) { Name = Name1; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires Name.
+*Postconditions - Returns the string value of Name.
 */
 	string GetName() { return Name; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires currentexperience. Requires input.
+*Postconditions - Sets currentexperience to input.
 */
 	void SetExperience(int exp) { currentexperience = exp; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires currentexperience.
+*Postconditions - Returns the int value of currentexperience.
 */
 	int GetExperience() { return currentexperience; };
 
-	/*
-*Preconditions -
-*Postconditions -
+/*
+*Preconditions - Requires iostream. Requires experienceneeded. Requires input.
+*Postconditions - Sets experienceneeded to input.
 */
 	void SetExperienceNeeded(int exp) { experienceneeded = exp; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires experienceneeded.
+*Postconditions - Returns the int value of experienceneeded.
 */
 	int ExperienceToNext() { return experienceneeded; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires level. Requires input.
+*Postconditions - Sets level to input.
 */
 	void SetLevel(int lvl) { level = lvl; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires level.
+*Postconditions - Returns the int value of level.
 */
 	int GetLevel() {return level;};
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires health. Requires input.
+*Postconditions - Sets health as input.
 */
 	void SetHealth(int hlt) { health = hlt; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires health.
+*Postconditions - Returns int value of health.
 */
 	int GetHealth() { return health; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires maxHealth. Requires input.
+*Postconditions - Sets maxHealth to input.
 */
 	void SetMaxH(int mxhlt) { maxHealth = mxhlt; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires maxHealth.
+*Postconditions - Returns int value of maxHealth.
 */
 	int GetMaxH() { return maxHealth; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires stamina. Requires input.
+*Postconditions - Sets stamina to input.
 */
 	void SetStamina(int sta) { stamina = sta; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires stamina.
+*Postconditions - Returns int value of stamina.
 */
 	int GetStamina() { return stamina; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires speed. Requires input.
+*Postconditions - Sets speed to input.
 */
 	void SetSpeed(int spd) { speed = spd; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires speed.
+*Postconditions - Returns int value of speed.
 */
 	int GetSpeed() { return speed; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires strength. Requires input.
+*Postconditions - Sets strength to input.
 */
 	void SetStrength(int str) { strength = str; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires strength.
+*Postconditions - Returns int value of strength.
 */
 	int GetStrength() { return strength; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires armor. Requires equipment[].
+*Postconditions - Sets armor to an int value based on the values inside of the different parts of equipment[].
 */
 	void SetArmor();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires armor.
+*Postconditions - Returns int value of armor.
 */
 	int GetArmor() { return armor; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires money. Requires input.
+*Postconditions - Sets money to input.
 */
 	void SetMoney(int& mon) { money = mon; };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requirs money.
+*Postconditions - Returns input value of money.
 */
 	int GetMoney() { return money; };
 
 	/*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires currentexperience, experienceneeded, level.
+*Postconditions - Sets currentexperience and experienceneeded based on value of level.
+* NOTE*** This is not needed for this right now. I was thinking of implementing something, but won't go into details.
 */
 	void SetExperience() {
 		currentexperience = level * 50;
 		experienceneeded = 50 + (level * 50); }
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream and std library. Requires inventory[]. Requires craft().
+*Postconditions - Outputs items that are craftable by the user given the number of items in their inventory. Then based on an input,
+* runs craft(), based on their input.
 */
 	void showcraft();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requiers iostream and std library. Requires inventory[]. Requirs input.
+*Postconditions - Based on input, subtracts the necessary items from the inventory[] and adds the correct items to inventory[].
+* Alternatively, if they have chosen an input that does not work, it will display an error message.
 */
 	void craft(int& item);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream and std library. Requires level, strength, speed, stamina, maxHealth, health, experienceneeded.
+*Postconditions - Adds 1 to level, strength, speed, stamina. Adds 10 to maxHealth, and sets health to maxHealth. Increases experienceneeded by 50.
+* Then allows the user to choose one of strength, speed, stamina, maxHealth, to add one to strength, speed, stamina, or 10 to maxHealth.
 */
 	void LevelUp();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires currentexperience, experienceneeded. Requires LevelUp(). Requires input.
+*Postconditions - Adds input to currentexperience. If currentexperience >= experienceneeded, then runs LevelUp() on loop until
+* that condition is no longer met.
+* NOTE*** I have had a few run ins with the dragon, which shits out a lot of experience, enough to level up like, 10 times,
+* and it only leveled me up once. So that is an issue.
 */
 	void GainExperience(int exp);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream and std library. Requires inventory[]. Requires effect(). Requires input.
+*Postconditions - Based on input, determines if the item selected is usable, if it is, then it detracts one from
+* inventory[], then runs effect() with the item number as its input.
+* NOTE*** May need to subtract one from input. Have never used an item in the game.
 */
 	void useitem(int use);
 
-	/*
-*Preconditions -
-*Postconditions -
+/*
+*Preconditions - Requires iostream. Requires health, maxHealth. Requires input.
+*Postconditions - Depending on input, and on current health compared to maxHealth, increases health, or does nothing.
+* NOTE*** Some usable items do nothing. Time is of the essence.
 */
 	void effect(int use);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires inventory[]. Requires 2 inputs.
+*Postconditions - Adds the number of items(second input) to inventory[first input].
 */
 	void AddItem(int& add, int num);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream and std library.
+*Postconditions - Outputs all items in the inventory, if there is more than 0 of that item.
 */
 	void ShowInv();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream and std library. Requires inventory[], equipment[]. Requires input.
+*Postconditions - Determines which item is trying to be equipped based on input. Then removes it from the inventory[]
+* and adds it to equipment[]. Or outputs an error message.
 */
 	void EquipItem(int& eq);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream and std library. Requires inventory[]. Requires useitem().
+*Postconditions - Shows usable items in the users inventory next to a number. Prompts user for input based on what is in their inventory.
+* Runs useitem() based on that input.
 */
 	void CombatItem();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires health. Requires input.
+*Postconditions - Subtracts input from health.
 */
 	void GetAttacked(int atk);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires equipment[5].
+*Postconditions - Returns whether or not there is an int greater than 0 in equipment[5].
 */
+
 	bool HasWeapon() { return (equipment[5] > 0); };
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires inventory[]. Requires input.
+*Postconditions - Changes the input to the number in the inventory[] to the specific place that that input is trying to obtain the number of.
 */
 	void VillageItem(int& st, int& wo, int& met);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires inventory[]. Requires 3 inputs.
+*Postconditions - Sets the corresponding inventory[] slots to the inputs.
 */
 	void CreatedItem(int& st, int& wo, int& met);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires inventory[]. Requires input[].
+*Postconditions - Sets the input[] to inventory[] slot by slot.
 */
 	void GetInv(int inv[]);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires equipment[]. Requires input[].
+*Postconditions - Sets the input[] to equipment[] slot by slot.
 */
 	void GetEqp(int eqp[]);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires inventory[]. Requires input[].
+*Postconditions - Sets the inventory[] to input[] slot by slot.
 */
 	void SetInv(int inv[]);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires equipment[]. Requires input[].
+*Postconditions - Sets the equipment[] to input[] slot by slot.
 */
 	void SetEqp(int eqp[]);
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream and std library. Requires inventory[], money.
+*Postconditions - Prompts the user to sell an item. Upon input, it asks how many they would like to sell. It then subtracts
+* that many of that item from it's corresponding inventory[] slot, and adds that particular items value to money.
+* Returns the negative value of that item, so it can be deleted from the villagers gold.
 */
 	int trade();
 
 /*
-*Preconditions -
-*Postconditions -
+*Preconditions - Requires iostream. Requires money. Requires input.
+*Postconditions - Adds input to money.
 */
 	void addremovegold(int g);
 

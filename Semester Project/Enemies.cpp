@@ -8,16 +8,16 @@
 Enemies::Enemies(int no, int plev)
 {
 	SetEnemy(no);
+	SetEMaxLevel();
+	SetELevel(plev);
 	SetEHealth();
 	SetESpeed();
 	SetEStamina();
 	SetEStr();
 	EnemyAttack();
 	SetExp();
-	SetEMaxLevel();
 	SetLoot();
 	SetArmorRating();
-	SetELevel(plev);
 }
 
 Enemies::~Enemies()
@@ -27,7 +27,7 @@ Enemies::~Enemies()
 
 void Enemies::SetEHealth()
 {
-	if (elevel == 0)
+	/*if (elevel == 0)
 	{
 		ehealth = 10;
 	}
@@ -42,19 +42,62 @@ void Enemies::SetEHealth()
 	else
 	{
 		ehealth = 250;
+	}*/
+	if (enumber < 10)
+	{
+		if (elevel == 0)
+		{
+			ehealth = 10;
+		}
+		else if (elevel < 10 && elevel > 0)
+		{
+			ehealth = 50;
+		}
+		else if (elevel < 20 && elevel >= 10)
+		{
+			ehealth = 150;
+		}
+		else if (elevel < 30 && elevel >= 10)
+		{
+			ehealth = 250;
+		}
+		else if (elevel < 40 && elevel >= 30)
+		{
+			ehealth = 350;
+		}
+		else if (elevel < 50 && elevel >= 40)
+		{
+			ehealth = 400;
+		}
+		else if (elevel >= 50)
+		{
+			ehealth = 500;
+		}
+	}
+	else if (enumber == 10)
+	{
+		ehealth = 500;
+	}
+	else if (enumber == 11)
+	{
+		ehealth = 750;
+	}
+	else if (enumber == 12)
+	{
+		ehealth = 1500;
 	}
 }
 
 void Enemies::SetESpeed()
 {
-	if (enumber != 12)
+	if (enumber < 11)
 	{
 		if (elevel > 0)
 			espeed = elevel;
 		else
 			espeed = 1;
 	}
-	else //The dragon will pretty much always be faster than you.
+	else //The dragon and demons will pretty much always be faster than you.
 	{
 		espeed = 150 + elevel;
 	}
@@ -62,7 +105,7 @@ void Enemies::SetESpeed()
 
 void Enemies::SetEStamina()
 {
-	if (enumber != 12)
+	if (enumber != 12)//stam does nothing right now
 	{
 		if (elevel > 0)
 			estamina = elevel;
@@ -75,19 +118,66 @@ void Enemies::SetEStamina()
 	}
 }
 
-void Enemies::SetEStr() //The dragon doesn't hit that much harder than the other guys, but he can take a beating.
+void Enemies::SetEStr() //The dragon is strong.
 {
-	if (elevel != 0)
+	/*if (elevel != 0)
 		estrength = elevel;
 	else if(elevel == 0)
-		estrength = 1;
+		estrength = 1;*/
+	if (enumber < 10)
+	{
+		if (elevel == 0)
+		{
+			estrength = 2;
+		}
+		if (elevel < 10 && elevel > 0)
+		{
+			estrength = 10;
+		}
+		else if (elevel < 20 && elevel >= 10)
+		{
+			estrength = 20;
+		}
+		else if (elevel < 30 && elevel >= 10)
+		{
+			estrength = 30;
+		}
+		else if (elevel < 40 && elevel >= 30)
+		{
+			estrength = 40;
+		}
+		else if (elevel < 50 && elevel >= 40)
+		{
+			estrength = 50;
+		}
+		else if (elevel >= 50) //very few creatures will be in this category
+		{
+			estrength = 75;
+		}
+	}
+	else if (enumber == 10)
+	{
+		estrength = 75;
+	}
+	else if (enumber == 11)
+	{
+		estrength = 100;
+	}
+	else if (enumber == 12)
+	{
+		estrength = 125;
+	}
 }
 
 void Enemies::SetEMaxLevel()
 {
-	if (enumber < 10)
+	if (enumber == 0 || enumber < 4)
 	{
-		emax_level = enumber + 10;
+		emax_level = 15;
+	}
+	if (enumber < 10 && enumber > 3)
+	{
+		emax_level = enumber + 40;
 	}
 	else //prepare to get roughed up by some witches, demons, and a dragon.
 	{
@@ -110,9 +200,14 @@ void Enemies::SetELevel(int plvl)
 void Enemies::SetExp()
 {
 	int exp;
-	if (enumber != 12)
+	if (enumber < 10)
 	{
 		exp = enumber + 25;
+		eexpgiven = exp;
+	}
+	else if (enumber < 12 && enumber >= 10)
+	{
+		exp = enumber + 75;
 		eexpgiven = exp;
 	}
 	else
@@ -122,13 +217,13 @@ void Enemies::SetExp()
 	}
 }
 
-int Enemies::EnemyAttack()
+int Enemies::EnemyAttack() // do not need this right now. May end up adding like, a special attack for the different creatures later.
 {
 	eattack = estrength;
 	return eattack;
 }
 
-void Enemies::SetArmorRating()
+void Enemies::SetArmorRating()//this does nothing right now. in later versions, there will be armor ratings.
 {
 	if (enumber != 12)
 	{
@@ -201,7 +296,7 @@ void Enemies::GetAttacked(int att)
 {
 	int damage = ehealth - att;
 	ehealth = damage;
-	if (ehealth < 0)
+	if (ehealth <= 0)
 	{
 		SetLoot();
 	}

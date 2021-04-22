@@ -39,7 +39,6 @@ void Player::CharacterSetUp()
 	strength = 1;
 	stamina = 1;
 	speed = 1;
-	strength = 1;
 	health = 100;
 	maxHealth = health;
 	experienceneeded = 50;
@@ -58,7 +57,7 @@ void Player::CharacterSetUp()
 		cin.get(selection);
 		if (selection == 'W' || selection == 'w')
 		{
-			cout << "Stamina determines your health regen.\n";
+			//cout << "Stamina determines your health regen.\n";
 			laser = true;
 			stamina++;
 		}
@@ -123,7 +122,7 @@ void Player::SetArmor()
 	if (equipment[0] == 1)
 	{
 		//helmet
-		armor = 5;
+		armor = armor + 5;
 	}
 	if (equipment[1] == 1)
 	{
@@ -224,7 +223,7 @@ void Player::showcraft()
 		cout << "Not a number. Try again.\n";
 		cin >> crch;
 	}
-	if (crch != 17)
+	if (crch != 0)
 	{
 		craft(crch);
 	}
@@ -385,7 +384,8 @@ void Player::useitem(int use) //need to add in the uses of the items
 
 void Player::effect(int use)
 {
-	switch (use)
+	switch (use)// a few of the items do nothing right now. I can't decide if I want the health boost and the stat boost potions to increase your
+		//stats permanently, or if they should just be for the battle at hand. These are decisions that I can make way later.
 	{
 	case 11: 
 	if (health < maxHealth)
@@ -656,91 +656,91 @@ int Player::trade()
 	case 0: break;
 	case 1:	inventory[t - 1] = inventory[t - 1] - am;
 		ams = (1 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 2: inventory[t - 1] = inventory[t - 1] - am;
 		ams = (2 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 3:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (3 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 4:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (15 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 5:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (15 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 6:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (15 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 7:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (10 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 8:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (10 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 9:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (10 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 10:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (20 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 11:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (15 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 12:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (5 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 13:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (10 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 14:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (10 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 15:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (10 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 16:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (1 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 17:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (3 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 18:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (3 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 19:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (25 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 20:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (50 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 21:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (30 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	case 22:inventory[t - 1] = inventory[t - 1] - am;
 		ams = (25 * am);
-		money = (money - ams);
+		money = (money + ams);
 		break;
 	default: break;
 	}

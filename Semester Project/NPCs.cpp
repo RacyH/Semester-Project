@@ -7,16 +7,17 @@
 
 NPCs::NPCs()//every time you play, there will be different villagers.
 {
-	srand(time(NULL));
-	int npcn = rand() % 5 + 1;
-	Nnumber = npcn;
+	srand(time(0));
+	int r = rand() % 6;
+
+	Nnumber = r;
 
 	SetNPCname();
 	SetNPCmoney();
 	SetInv();
 }
 
-void NPCs::SetNPClevel()
+/*void NPCs::SetNPClevel()
 {
 	switch (Nnumber)
 	{
@@ -69,7 +70,7 @@ void NPCs::SetNPChealth()
 	default: NPChealth = 120;
 		break;
 	}
-}
+}*/
 
 void NPCs::SetNPCmoney()
 {
@@ -239,7 +240,7 @@ void NPCs::SetInv()
 {
 	for (int i = 0; i < 22; i++)
 	{
-		srand(time(NULL));
+		srand(time(0));
 		int itno = rand() % 26;
 		NPCinv[i] = itno;
 	}

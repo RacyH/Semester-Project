@@ -75,12 +75,12 @@ void Game::setdefmap()
 {
 	playmap.SetLocationType();
 	playmap.CreateMapLarge();
-	playmap.CreateMapSmall();
+	//playmap.CreateMapSmall();
 }
 
 void Game::evalpos(int& something)
 {
-	int loc = playmap.GetPlayLocation(lmx, lmy);// ene = -1;
+	//int loc = playmap.GetPlayLocation(lmx, lmy);// ene = -1;
 	char type = playmap.GetLocType(lmx, lmy);
 	something = EnemySpawn();
 	if (something != -1)
@@ -164,7 +164,7 @@ void Game::HUD()
     cout << Player1.GetExperience() << '/' << Player1.ExperienceToNext() << endl << endl;
 	cout << "Health/Max Health: " << Player1.GetHealth() << '/' << Player1.GetMaxH() << endl;
 	//cout << "Current Position:" << smy << smx << endl << endl;//not sure if I want to include current position yet
-	cout << playmap.GetPlayLocation(lmx, lmy) << endl; //this is just for error handling.
+	//cout << playmap.GetPlayLocation(lmx, lmy) << endl; //this is just for error handling.
 }
 
 void Game::menu()
@@ -420,12 +420,16 @@ void Game::startmenu()
 		{
 			choice = true;
 			Player1.CharacterSetUp();
+			INTRO();
+			Sleep(500);
 			run();
 		}
 		else if (selection == 'L' || selection == 'l')
 		{
 			choice = true;
 			loadgame();
+			INTRO();
+			Sleep(500);
 			run();
 		}
 		else if (selection == 'E' || selection == 'e')
@@ -462,6 +466,7 @@ void Game::vinteract()
 	}
 	cout << "Would you like to buy or sell items?\n";
 	cout << "1 to buy, 2 to sell, 0 to exit.\n";
+	cin >> bs;
 	while (!(cin >> bs))
 	{
 		cin.clear();
@@ -479,8 +484,8 @@ void Game::vinteract()
 			cout << "0. Exit\n";
 			am = 0;
 			int x = villager1.trade(g, am);
-			am = 0;
 			Player1.addremovegold(g);
+			am -= 1;
 			Player1.AddItem(x, am);
 		}
 		else if (bs == 2)
@@ -498,6 +503,7 @@ void Game::vinteract()
 		am = 0;
 		int x = villager2.trade(g, am);
 		Player1.addremovegold(g);
+		am -= 1;
 		Player1.AddItem(x, am);
 	}
 		  else if (bs == 2)
@@ -515,6 +521,7 @@ void Game::vinteract()
 		am = 0;
 		int x = villager3.trade(g, am);
 		Player1.addremovegold(g);
+		am -= 1;
 		Player1.AddItem(x, am);
 	}
 		  else if (bs == 2)
@@ -532,6 +539,7 @@ void Game::vinteract()
 		am = 0;
 		int x = villager4.trade(g, am);
 		Player1.addremovegold(g);
+		am -= 1;
 		Player1.AddItem(x, am);
 	}
 		  else if (bs == 2)
@@ -549,6 +557,7 @@ void Game::vinteract()
 		am = 0;
 		int x = villager5.trade(g, am);
 		Player1.addremovegold(g);
+		am -= 1;
 		Player1.AddItem(x, am);
 	}
 		  else if (bs == 2)
@@ -559,13 +568,14 @@ void Game::vinteract()
 		villager5.addremovegold(g);
 	}
 		  break;
-	case 6: 		if (bs == 1)
+	case 6: if (bs == 1)
 	{
 		villager6.showitems();
 		cout << "0. Exit\n";
 		am = 0;
 		int x = villager6.trade(g, am);
 		Player1.addremovegold(g);
+		am -= 1;
 		Player1.AddItem(x, am);
 	}
 		  else if (bs == 2)
@@ -595,6 +605,13 @@ void Game::craftvillage() //needs to interact with player and map
 	cout << "You can choose to 1. craft a menu item, 2. craft a village item, 3. to sell items to a villager.\n";
 	cout << "0. Exit\n";
 	cin >> input;
+	while (!(cin >> input))
+	{
+		cin.clear();
+		cin.ignore(123, '\n');
+		cout << "Not a correct input.\nTry again.\n";
+		cin >> input;
+	}
 	switch (input)
 	{
 	case 1: craft();
@@ -803,4 +820,21 @@ void Game::combat(int i)
 		}
 	}
 
+}
+
+void Game::INTRO()
+{
+	system("cls");
+	cout << "This world has become stricken with plague and hunger.\n";
+	cout << "A dark and powerful enemy has taken over the other side of the valley.\n";
+	cout << "His pressence has called forth terrible enemies.\n";
+	cout << "Our village is safe for now.\n";
+	cout << "Press I to use your inventory.\n";
+	cout << "Use w, a, s, and d to move. W is forward, a is left, s is down, and d is right.\n";
+	cout << "Press Z to access your menu.\n";
+	cout << "Press E to craft.\n";
+	cout << "Here are some helpful hints.\nRunning downhill towards the village is often times the fastest way home.\n";
+	cout << "Demons and witches are very powerful. If you are not high enough level, they will kill you.\n";
+	cout << "Sometimes it pays to just come home instead of facing such terrors.\n";
+	Sleep(1000);
 }

@@ -62,7 +62,7 @@ void Map::SetLocationType()//randomly generates a world. There is a 60% chance o
 	large[0][0] = 'V';
 }
 
-void Map::CreateMapSmall()//may disclude this entirely. if the terrain has been built in maplarge, then it doesn't need to take up any more space in the game itself.
+/*void Map::CreateMapSmall()//may disclude this entirely. if the terrain has been built in maplarge, then it doesn't need to take up any more space in the game itself.
 {//this is now for the village map, so that house and well can be stored here.
 	//may end up discluding anyway, and just making hashouse and haswell options. make the code smaller, more efficient
 	for (int x = 0; x < 6; x++)
@@ -72,7 +72,7 @@ void Map::CreateMapSmall()//may disclude this entirely. if the terrain has been 
 			mapsmall[y][x] = 'x';
 		}
 	}
-}
+}*/
 
 int Map::GetPlayLocation(int& x, int& y)
 {
