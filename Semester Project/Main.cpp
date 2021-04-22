@@ -16,7 +16,11 @@
 */
 void mainmenu();
 
-
+/*
+There are quite a few bugs in this code. However, it runs, works, and is quite fun. 10/10 would definitely recommend.
+Also, You may find that there are a few classes that do not have deconstructors. I found out that because I used arrays,
+it deletes all of it's variables automatically without a deconstructor. Enjoy this game.
+*/
 int main()
 {
 	mainmenu();
